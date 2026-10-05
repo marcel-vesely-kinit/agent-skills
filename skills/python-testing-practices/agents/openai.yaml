@@ -1,0 +1,4 @@
+interface:
+  display_name: "Python Testing Practices"
+  short_description: "Practical pytest testing defaults"
+  default_prompt: "Use $python-testing-practices when writing or reviewing Python tests."

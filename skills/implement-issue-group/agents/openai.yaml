@@ -1,0 +1,4 @@
+interface:
+  display_name: "Implement Issue Group"
+  short_description: "Implement a dependency-linked issue group"
+  default_prompt: "Parent issue: <URL or owner/repo#N>. Separate spec: <path/URL if any>. Tickets: <issue URLs/IDs or range>."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Review Implemented Issue Group"
+  short_description: "Check an issue group against its parent spec"
+  default_prompt: "Parent spec issue: <GitHub URL or owner/repo#N>."
