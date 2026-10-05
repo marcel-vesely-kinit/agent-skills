@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "skills": {
+    "fastapi-app-scaffolding": {
+      "source": "marcel-vesely-kinit/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/fastapi-app-scaffolding/SKILL.md",
+      "computedHash": "63f2b3bfebe621769e86a9e1edde180a71c0377f2041ec20cd42bbd66deb7baa"
+    },
+    "frontend-feedback-loops": {
+      "source": "marcel-vesely-kinit/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/frontend-feedback-loops/SKILL.md",
+      "computedHash": "4e89316b0964c74dfffce9727ec88a2d49dfd9597f10380e00eaab50f4762fe8"
+    },
+    "implement-issue-group": {
+      "source": "marcel-vesely-kinit/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/implement-issue-group/SKILL.md",
+      "computedHash": "bf5ab33c091bdbd3f9d1633afe1e24dd0c990d201a964fe6f3be2097932d4967"
+    },
+    "python-testing-practices": {
+      "source": "marcel-vesely-kinit/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/python-testing-practices/SKILL.md",
+      "computedHash": "1bdea0c7b053db1cfb987b14199501320645b204f17d6df451e58b9e6c46f09c"
+    },
+    "review-implemented-issue-group": {
+      "source": "marcel-vesely-kinit/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/review-implemented-issue-group/SKILL.md",
+      "computedHash": "925f7a9286ae75566e1b6b3e16cb67fd5492ec6a601b3aa2e1f89a82245916ef"
+    }
+  }
+}

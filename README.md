@@ -1,82 +1,48 @@
 # Personal Agent Skills
 
-This repository stores reusable agent skills. The skills CLI can install them directly from this repository.
+Reusable skills that can be installed with the [`skills` CLI](https://github.com/vercel-labs/skills).
+
+## Install interactively
+
+Run this command:
+
+```bash
+npx skills@latest add marcel-vesely-kinit/agent-skills
+```
+
+The CLI guides you through choosing which skills and agents to install to, and whether to install them for the current project or globally.
 
 ## Included skills
 
-- `fastapi-app-scaffolding`
-- `frontend-feedback-loops`
-- `python-testing-practices`
-- `implement-issue-group`
-- `review-implemented-issue-group`
+| Skill | What it does |
+| --- | --- |
+| `fastapi-app-scaffolding` | Sets up a small, database-backed FastAPI service using UV, async SQLAlchemy, and PostgreSQL by default. It establishes clear boundaries between routes, persistence, and business logic, with room to add structure only as the application needs it. |
+| `frontend-feedback-loops` | Requires the Playwright CLI and Chrome DevTools MCP to be configured. It guides frontend work through the running app: reproduce a user-visible issue, use browser evidence to diagnose it, make a focused change, then verify the same flow and preserve stable behavior in a browser test. |
+| `python-testing-practices` | Helps write maintainable pytest tests by choosing the smallest useful test double, keeping fixtures and patches narrow, and checking behavior through public interfaces. It gives practical guidance for mocks, fakes, monkeypatching, async collaborators, and external services. |
+| `implement-issue-group` | Requires the `tdd` and `code-review` skills. It implements a dependency-linked set of GitHub issues against a parent spec, one reviewable ticket at a time: checking blockers, using a test-first vertical slice, reviewing and verifying the result, then committing and closing completed tickets. It runs without pausing for human approval. |
+| `review-implemented-issue-group` | Audits a completed issue group against its original parent spec and the implementation at the current branch, after checking that the linked tickets are complete and their changes are present. It records only evidence-backed gaps; when gaps are confirmed, it hands them off as follow-up spec and ticket issues without implementing them. Publishing follow-ups requires the `to-spec` and `to-tickets` skills. |
 
 Each skill is in `skills/<skill-name>/` with its `SKILL.md` and any supporting files.
 
-## Install from a VM
+## Install specific skills directly
 
-The repository is private, so first configure repository access on each VM. The `skills` CLI uses the Git credentials available on that machine; credentials are not passed as a `skills` command argument.
-
-### Option 1: SSH key (recommended)
-
-1. Create or select an SSH key for the VM.
-2. Add the key's public half to a GitHub account or deploy key that has read access to this repository. Keep the private key on the VM; do not commit it here.
-3. Confirm SSH authentication:
-
-   ```bash
-   ssh -T git@github.com
-   ```
-
-Then install a skill using this repository's SSH URL:
+For example, install one skill globally for Codex:
 
 ```bash
-npx skills@latest add git@github.com:<OWNER>/<REPO>.git \
+npx skills@latest add marcel-vesely-kinit/agent-skills \
   --global --agent codex --skill fastapi-app-scaffolding
 ```
 
-Replace `<OWNER>/<REPO>` with this repository's GitHub owner and name. To install a different skill, replace the value after `--skill` with one of the names above.
-
-### Option 2: GitHub CLI
-
-If GitHub CLI is installed, authenticate on the VM:
+To install all skills for all detected agents without prompts:
 
 ```bash
-gh auth login
-```
-
-Then install using the GitHub `OWNER/REPO` shorthand:
-
-```bash
-npx skills@latest add <OWNER>/<REPO> \
-  --global --agent codex --skill fastapi-app-scaffolding
-```
-
-The GitHub account used on the VM must have read access to this private repository.
-
-## Install multiple skills
-
-Pass `--skill` once for each skill you want. This example installs all five globally for Codex:
-
-```bash
-npx skills@latest add git@github.com:<OWNER>/<REPO>.git \
-  --global --agent codex \
-  --skill fastapi-app-scaffolding \
-  --skill frontend-feedback-loops \
-  --skill python-testing-practices \
-  --skill implement-issue-group \
-  --skill review-implemented-issue-group
-```
-
-Alternatively, install every skill discovered in the repository with `--skill '*'`:
-
-```bash
-npx skills@latest add git@github.com:<OWNER>/<REPO>.git \
-  --global --agent codex --skill '*'
+npx skills@latest add marcel-vesely-kinit/agent-skills --all
 ```
 
 ## Updating
 
-After changing skills in this repository, run the install command again on each VM to refresh the installed copy. You can also use `npx skills@latest update` to update installed skills.
+Update installed skills with:
 
-## Credential handling
-
-Configure authentication through SSH or GitHub CLI on each VM. Do not put access tokens or private keys in this repository, in a repository URL, or in a command shown in shell history. For unattended environments, provide credentials through that environment's secret manager and Git authentication setup.
+```bash
+npx skills@latest update
+```
